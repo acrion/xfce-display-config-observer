@@ -1,0 +1,33 @@
+# Copyright (c) 2024 acrion innovations GmbH
+# Authors: Stefan Zipproth, s.zipproth@acrion.ch
+#
+# This file is part of xfce-display-config-observer, see https://github.com/acrion/xfce-display-config-observer
+#
+# xfce-display-config-observer is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# xfce-display-config-observer is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with xfce-display-config-observer. If not, see <https://www.gnu.org/licenses/>.
+
+# In context of Ditana GNU/Linux, this service is enabled and started by
+# /usr/share/ditana/xfce-first-login.sh (package ditana-config-xfce)
+
+[Unit]
+Description=Monitor display settings and update XFCE configurations
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/xfce4/display-config-observer/observer.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,26 @@
+pkgbase = xfce-display-config-observer
+	pkgdesc = A systemd service that monitors changes to the XFCE display configuration to automatically adjust the font DPI to match the display DPI. It also adjusts the height of the XFCE panel.
+	pkgver = 1.007
+	pkgrel = 1
+	url = https://github.com/acrion/xfce-display-config-observer
+	install = xfce-display-config-observer.install
+	arch = any
+	license = AGPL-3.0-or-later
+	depends = bc
+	depends = findutils
+	depends = grep
+	depends = inotify-tools
+	depends = procps-ng
+	depends = xfconf
+	depends = xmlstarlet
+	depends = xorg-xrandr
+	source = xfce-display-config-observer.1
+	source = xfce-display-config-observer.service
+	source = observer.sh
+	source = updater.sh
+	sha256sums = SKIP
+	sha256sums = SKIP
+	sha256sums = SKIP
+	sha256sums = SKIP
+
+pkgname = xfce-display-config-observer

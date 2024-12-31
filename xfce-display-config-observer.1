@@ -1,0 +1,35 @@
+.TH xfce-display-config-observer 1 "October 2024" "xfce-display-config-observer 1.000" "User Commands"
+.SH NAME
+xfce-display-config-observer \- XFCE Display Configuration Observer Service
+
+.SH SYNOPSIS
+.B xfce-display-config-observer
+is a systemd user service that monitors XFCE display configuration changes and automatically adjusts the font DPI to match the display DPI. It also adjusts the height of the XFCE panel accordingly.
+
+.SH DESCRIPTION
+The
+.B xfce-display-config-observer
+service continuously observes the current state of the XFCE display configuration. When changes to connected displays are detected, it updates the font DPI in XFCE based on the primary display’s DPI. Additionally, it adjusts the height of XFCE panels dynamically to align with the physical height of the primary display.
+
+The service operates at the user level, in alignment with XFCE’s user-specific DPI settings.
+
+.SH USAGE
+To enable and start the service for your user, use:
+
+.nf
+    systemctl --user enable --now xfce-display-config-observer.service
+.fi
+
+The service monitors the directory
+
+.nf
+    $HOME/.config/xfce4/display-config-observer/dpi
+.fi
+
+for a file (with an arbitrary name). The DPI value in this file overrides the detected (or undetected) DPI value. This feature is intended primarily for virtual machines, where information about the host’s physical display may not be available. If you need this override on a physical machine, please open a GitHub issue at https://github.com/acrion/xfce-display-config-observer/issues/new explaining your requirements.
+
+.SH NOTES
+Adjust font sizes directly in XFCE settings if needed, rather than modifying the DPI value manually. This service is designed to ensure the font DPI accurately reflects the actual DPI of connected displays, promoting optimal readability and visual consistency.
+
+.SH AUTHOR
+Developed and maintained by Stefan Zipproth <s.zipproth@ditana.org>

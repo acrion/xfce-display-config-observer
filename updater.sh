@@ -20,6 +20,9 @@
 
 # This script is used by /usr/lib/xfce4/display-config-observer/observer.sh
 
+# Let display configuration settle after change event
+sleep 0.5
+
 parse_xfce_primary() {
     local DISPLAYS_FILE=$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
 
@@ -57,7 +60,7 @@ if [[ -n "$XFCE_PRIMARY" ]]; then
     # We use XFCE’s designated primary to filter xrandr output and identify the line that
     # contains the geometry of the primary display. This approach ensures we get the correct
     # primary display even when multiple displays are connected or when xrandr’s primary
-    # doesn’tmatch XFCE’s configuration.
+    # doesn’t match XFCE’s configuration.
     XRANDR_INFO=$(xrandr | grep "$XFCE_PRIMARY connected")
 else
     # Sometimes XFCE does not designate a primary display even if several displays are connected.

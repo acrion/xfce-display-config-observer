@@ -1,7 +1,7 @@
 # Maintainer: Stefan Zipproth <s.zipproth@ditana.org>
 
 pkgname=xfce-display-config-observer
-pkgver=1.008
+pkgver=1.009
 pkgrel=1
 pkgdesc="A systemd service that monitors changes to the XFCE display configuration to automatically adjust the font DPI to match the display DPI. It also adjusts the height of the XFCE panel."
 arch=(any)

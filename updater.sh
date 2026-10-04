@@ -101,7 +101,7 @@ EOF
 
 if [[ -n "$DPI_FILE" && -f "$DPI_FILE" ]]; then
     DPI=$(xargs <"$DPI_FILE")
-    MIN=102
+    MIN=92
     MAX=185
 
     if ! [[ "$DPI" =~ ^[0-9]+$ ]]; then
